@@ -4,9 +4,6 @@ import QueueCard from '../QueueCard/QueueCard';
 import { useState } from 'react';
 
 const TicketsQueue = () => {
-    const [ticketCounter, setTicketCounter] = useState(0);
-    const [patientCounter, setPatientCounter] = useState(0);
-
     const videos = [
         "/assets/videos/video1.mp4",
         "/assets/videos/video2.mp4"
@@ -26,8 +23,10 @@ const TicketsQueue = () => {
         ["B0005", "VEN-05"]
     ]
 
-    const[tickets, setTickets] = useState([])
-    const[patients, setPatients] = useState([])
+    const [ticketCounter, setTicketCounter] = useState(0)
+    const [patientCounter, setPatientCounter] = useState(0)
+    const [patients, setPatients] = useState([])
+    const [tickets, setTickets] = useState([])
 
     const addPatient = () => {
         setPatients(prevPatients => [...prevPatients, patientsInformation[patientCounter]])
@@ -49,13 +48,13 @@ const TicketsQueue = () => {
                 <button onClick={addPatient}>Agregar Paciente</button>
             </div>
             <div className='tickets-queue-list tickets-queue-box'>
-                {tickets.map((ticket) => (
-                    <QueueCard key={ticket} type="ticket" ticket={ticket[0]} counter={ticket[1]} />
+                {tickets.map((ticketInformation) => (
+                    <QueueCard key={ticketInformation} type="ticket" ticket={ticketInformation[0]} counter={ticketInformation[1]} />
                 ))}
             </div>
             <div className='tickets-queue-list tickets-queue-box'>
-                {patients.map((patient) => (
-                    <QueueCard key={patient} type="patient" patient={patient[0].toUpperCase()} office={patient[1]} />
+                {patients.map((patientInformation) => (
+                    <QueueCard key={patientInformation} type="patient" patient={patientInformation[0].toUpperCase()} office={patientInformation[1]} />
                 ))}
             </div>
         </div>
