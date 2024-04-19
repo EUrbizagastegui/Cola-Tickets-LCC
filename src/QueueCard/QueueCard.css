@@ -3,9 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 2px solid var(--secondary);
-    border-right: 2px;
-    border-right-style: solid;
-    border-right-color: var(--secondary);
+    border: 2px solid var(--secondary);
+    padding-inline: 2em;
     background-color: var(--primary);
 }

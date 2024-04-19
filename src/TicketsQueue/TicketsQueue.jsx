@@ -1,35 +1,62 @@
 import './TicketsQueue.css';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 import QueueCard from '../QueueCard/QueueCard';
-
+import { useState } from 'react';
 
 const TicketsQueue = () => {
+    const [ticketCounter, setTicketCounter] = useState(0);
+    const [patientCounter, setPatientCounter] = useState(0);
+
     const videos = [
         "/assets/videos/video1.mp4",
         "/assets/videos/video2.mp4"
     ];
+    const patientsInformation = [
+        ["García López, Lucía Isabel", "CONS-101"],
+        ["Torres Huamaní, Luis Antonio", "CONS-102"],
+        ["Gonzales Pérez, Camila Valentina", "CONS-103"],
+        ["Rodríguez Soto, Sebastián José", "CONS-104"],
+        ["Castillo Cruz, Valeria Alejandra", "CONS-105"]
+    ]
+    const ticketInformation = [
+        ["B0001", "VEN-01"],
+        ["B0002", "VEN-02"],
+        ["B0003", "VEN-03"],
+        ["B0004", "VEN-04"],
+        ["B0005", "VEN-05"]
+    ]
+
+    const[tickets, setTickets] = useState([])
+    const[patients, setPatients] = useState([])
+
+    const addPatient = () => {
+        setPatients(prevPatients => [...prevPatients, patientsInformation[patientCounter]])
+        setPatientCounter(prevPatientCounter => prevPatientCounter + 1)
+    }
+
+    const addTicket = () => {
+        setTickets(prevTickets => [...prevTickets, ticketInformation[ticketCounter]])
+        setTicketCounter(prevTicketCounter => prevTicketCounter + 1)
+    }
 
     return (
         <div className='tickets-queue'>
-            <div className='tickets-queue_video'>
+            <div className='tickets-queue-video tickets-queue-box'>
                 <VideoPlayer videos={videos} />
             </div>
             <div>
-                <h1>espacio 2</h1>
+                <button onClick={addTicket}>Agregar Ticket</button>
+                <button onClick={addPatient}>Agregar Paciente</button>
             </div>
-            <div className='tickets-queue_list'>
-                <QueueCard type="ticket" ticket="Ticket 1" counter="COUNTER 1" />
-                <QueueCard type="ticket" ticket="TICKET 2" counter="COUNTER 2" />
-                <QueueCard type="ticket" ticket="TICKET 3" counter="COUNTER 3" />
-                <QueueCard type="ticket" ticket="TICKET 4" counter="COUNTER 4" />
-                <QueueCard type="ticket" ticket="TICKET 5" counter="COUNTER 5" />
+            <div className='tickets-queue-list tickets-queue-box'>
+                {tickets.map((ticket) => (
+                    <QueueCard key={ticket} type="ticket" ticket={ticket[0]} counter={ticket[1]} />
+                ))}
             </div>
-            <div className='tickets-queue_list'>
-                <QueueCard type="patient" patient="PATIENT 1" office="OFFICE 1" />
-                <QueueCard type="patient" patient="PATIENT 2" office="OFFICE 2" />
-                <QueueCard type="patient" patient="PATIENT 3" office="OFFICE 3" />
-                <QueueCard type="patient" patient="PATIENT 4" office="OFFICE 4" />
-                <QueueCard type="patient" patient="PATIENT 5" office="OFFICE 5" />
+            <div className='tickets-queue-list tickets-queue-box'>
+                {patients.map((patient) => (
+                    <QueueCard key={patient} type="patient" patient={patient[0].toUpperCase()} office={patient[1]} />
+                ))}
             </div>
         </div>
     );

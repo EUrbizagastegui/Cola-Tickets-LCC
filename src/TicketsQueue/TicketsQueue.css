@@ -10,14 +10,20 @@
     max-height: 100%;
 }
 
-.tickets-queue_video {
+.tickets-queue-video {
     display: flex;
     justify-content: center;
     background-color: var(--primary);
 }
 
-.tickets-queue_list {
+.tickets-queue-list {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: start;
+    background-color: var(--primary);
+}
+
+.tickets-queue-box {
+    border-bottom: 2px solid var(--secondary);
+    border-right: 2px solid var(--secondary);
 }
