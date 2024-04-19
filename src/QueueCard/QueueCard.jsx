@@ -32,7 +32,6 @@ const QueueCard = ({ type, ticket, counter, patient, office }) => {
                 voice.voice = voices[31]
                 voice.voiceURI=voices[31].voiceURI
             }
-            console.log(voices)
 
         if (ticket !== "" && counter !== "" && type==="ticket") {
             number = counter.split('-')[1].split('0')[1];

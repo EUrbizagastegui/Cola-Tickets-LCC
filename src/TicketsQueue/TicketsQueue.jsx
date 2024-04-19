@@ -1,7 +1,7 @@
 import './TicketsQueue.css';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 import QueueCard from '../QueueCard/QueueCard';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const TicketsQueue = () => {
     const videos = [
@@ -23,19 +23,29 @@ const TicketsQueue = () => {
         ["B0005", "VEN-05"]
     ]
 
-    const [ticketCounter, setTicketCounter] = useState(0)
-    const [patientCounter, setPatientCounter] = useState(0)
     const [patients, setPatients] = useState([])
     const [tickets, setTickets] = useState([])
 
     const addPatient = () => {
-        setPatients(prevPatients => [...prevPatients, patientsInformation[patientCounter]])
-        setPatientCounter(prevPatientCounter => prevPatientCounter + 1)
+        let index = 0;
+
+        setInterval(() => {
+            if (index < patientsInformation.length) {
+                setPatients(prevPatients => [...prevPatients, patientsInformation[index]]);
+                index++;
+            }
+        }, 5000);
     }
 
     const addTicket = () => {
-        setTickets(prevTickets => [...prevTickets, ticketInformation[ticketCounter]])
-        setTicketCounter(prevTicketCounter => prevTicketCounter + 1)
+        let index = 0;
+
+        setInterval(() => {
+            if (index < ticketInformation.length) {
+                setTickets(prevTickets => [...prevTickets, ticketInformation[index]]);
+                index++;
+            }
+        }, 5000);
     }
 
     return (
