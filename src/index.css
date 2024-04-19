@@ -1,0 +1,33 @@
+:root {
+    --primary: #812324;
+    --secondary: rgb(94, 13, 7);
+    --tertiary: #cde4b3;
+    --border: #40957f;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.roboto-regular {
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-medium {
+    font-weight: 500;
+    font-style: normal;
+}
+
+.roboto-bold {
+    font-weight: 700;
+    font-style: normal;
+}
+
+h1 {
+    font-weight: 400;
+    font-style: normal;
+    color: var(--white)
+}

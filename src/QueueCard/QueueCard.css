@@ -1,0 +1,11 @@
+.queue-card {
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid var(--secondary);
+    border-right: 2px;
+    border-right-style: solid;
+    border-right-color: var(--secondary);
+    background-color: var(--primary);
+}

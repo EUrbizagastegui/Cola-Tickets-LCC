@@ -1,9 +1,10 @@
 import './App.css'
+import TicketsQueue from './TicketsQueue/TicketsQueue'
 
 function App() {
   return (
     <>
-      <h1>App Works!</h1>
+      <TicketsQueue></TicketsQueue>
     </>
   )
 }

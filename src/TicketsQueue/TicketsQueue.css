@@ -1,0 +1,23 @@
+.tickets-queue {
+    display: grid;
+    height: 100dvh;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.tickets-queue video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.tickets-queue_video {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary);
+}
+
+.tickets-queue_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
