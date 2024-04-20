@@ -14,7 +14,7 @@ const QueueCard = ({ type, ticket, counter, patient, office }) => {
                 prevColor === 'var(--primary)' ? 'var(--tertiary)' : 'var(--primary)'
             );
             repetition++;
-            if (repetition === 11) {
+            if (repetition === 7) {
                 setBackgroundColor(prevColor =>
                     prevColor === 'var(--primary)' ? 'var(--tertiary)' : 'var(--primary)'
                 );

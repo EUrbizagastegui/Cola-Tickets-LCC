@@ -1,7 +1,7 @@
 import './TicketsQueue.css';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 import QueueCard from '../QueueCard/QueueCard';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const TicketsQueue = () => {
     const videos = [
@@ -27,25 +27,29 @@ const TicketsQueue = () => {
     const [tickets, setTickets] = useState([])
 
     const addPatient = () => {
-        let index = 0;
+        if (patients.length < patientsInformation.length) {
+            let index = 0
 
-        setInterval(() => {
-            if (index < patientsInformation.length) {
-                setPatients(prevPatients => [...prevPatients, patientsInformation[index]]);
-                index++;
-            }
-        }, 5000);
+            setInterval(() => {
+                if (index < patientsInformation.length) {
+                    setPatients(prevPatients => [...prevPatients, patientsInformation[index]]);
+                    index++;
+                }
+            }, 3000);
+        }
     }
 
     const addTicket = () => {
-        let index = 0;
-
-        setInterval(() => {
-            if (index < ticketInformation.length) {
-                setTickets(prevTickets => [...prevTickets, ticketInformation[index]]);
-                index++;
-            }
-        }, 5000);
+        if (tickets.length < ticketInformation.length) {
+            let index = 0
+    
+            setInterval(() => {
+                if (index < ticketInformation.length) {
+                    setTickets(prevTickets => [...prevTickets, ticketInformation[index]]);
+                    index++;
+                }
+            }, 3000);
+        }
     }
 
     return (
@@ -54,8 +58,8 @@ const TicketsQueue = () => {
                 <VideoPlayer videos={videos} />
             </div>
             <div>
-                <button onClick={addTicket}>Agregar Ticket</button>
-                <button onClick={addPatient}>Agregar Paciente</button>
+                <button onClick={addTicket} >Agregar Ticket</button>
+                <button onClick={addPatient} >Agregar Paciente</button>
             </div>
             <div className='tickets-queue-list tickets-queue-box'>
                 {tickets.map((ticketInformation) => (
