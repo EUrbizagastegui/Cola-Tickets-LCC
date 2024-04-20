@@ -48,7 +48,7 @@ const TicketsQueue = () => {
                     setTickets(prevTickets => [...prevTickets, ticketInformation[index]]);
                     index++;
                 }
-            }, 3000);
+            }, 3000)
         }
     }
 
