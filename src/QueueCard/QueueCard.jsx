@@ -3,7 +3,7 @@ import './QueueCard.css';
 
 const QueueCard = ({ type, ticket, counter, patient, office }) => {
 
-    const [backgroundColor, setBackgroundColor] = useState('var(--primary)');
+    const [backgroundColor, setBackgroundColor] = useState('var(--secondary)');
 
     useEffect(() => {
         let timer = null;
@@ -11,12 +11,12 @@ const QueueCard = ({ type, ticket, counter, patient, office }) => {
 
         const changeColor = () => {
             setBackgroundColor(prevColor =>
-                prevColor === 'var(--primary)' ? 'var(--tertiary)' : 'var(--primary)'
+                prevColor === 'var(--secondary)' ? 'var(--tertiary)' : 'var(--secondary)'
             );
             repetition++;
             if (repetition === 7) {
                 setBackgroundColor(prevColor =>
-                    prevColor === 'var(--primary)' ? 'var(--tertiary)' : 'var(--primary)'
+                    prevColor === 'var(--secondary)' ? 'var(--tertiary)' : 'var(--secondary)'
                 );
                 clearInterval(timer);
             }

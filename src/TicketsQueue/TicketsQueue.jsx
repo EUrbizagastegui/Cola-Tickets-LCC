@@ -54,19 +54,19 @@ const TicketsQueue = () => {
 
     return (
         <div className='tickets-queue'>
-            <div className='tickets-queue-video tickets-queue-box'>
+            <div className='tickets-queue-video'>
                 <VideoPlayer videos={videos} />
             </div>
             <div>
                 <button onClick={addTicket} >Agregar Ticket</button>
                 <button onClick={addPatient} >Agregar Paciente</button>
             </div>
-            <div className='tickets-queue-list tickets-queue-box'>
+            <div className='tickets-queue-list'>
                 {tickets.map((ticketInformation) => (
                     <QueueCard key={ticketInformation} type="ticket" ticket={ticketInformation[0]} counter={ticketInformation[1]} />
                 ))}
             </div>
-            <div className='tickets-queue-list tickets-queue-box'>
+            <div className='tickets-queue-list'>
                 {patients.map((patientInformation) => (
                     <QueueCard key={patientInformation} type="patient" patient={patientInformation[0].toUpperCase()} office={patientInformation[1]} />
                 ))}

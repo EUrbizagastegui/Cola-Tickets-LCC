@@ -20,10 +20,7 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
+    gap: 0.5em;
     background-color: var(--primary);
-}
-
-.tickets-queue-box {
-    border-bottom: 2px solid var(--secondary);
-    border-right: 2px solid var(--secondary);
+    padding-block: 0.5em;
 }
