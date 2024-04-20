@@ -22,41 +22,22 @@ const QueueCard = ({ type, ticket, counter, patient, office }) => {
             }
         };
 
-        let number = "";
+        // Reproducir el archivo WAV
+        const playSound = () => {
+            const audio = new Audio('/assets/sounds/notification.wav');
+            audio.play();
+        };
 
-        let voice = new SpeechSynthesisUtterance();
-
-            let voices = speechSynthesis.getVoices()
-
-            if (voices.length!==0) {
-                voice.voice = voices[31]
-                voice.voiceURI=voices[31].voiceURI
-            }
-
-        if (ticket !== "" && counter !== "" && type==="ticket") {
-            number = counter.split('-')[1].split('0')[1];
-
-            voice.text = `Ticket ${ticket}, por favor acercarse a la ventanilla ${number}.`;
-
-            window.speechSynthesis.speak(voice);
-
-        } else if (patient !== "" && office !== "" && type==="patient") {
-            number = office.split('-')[1];
-
-            voice.text = `Paciente ${patient}, por favor acercarse al consultorio ${number}.`;
-
-            window.speechSynthesis.speak(voice);
-
-        } else {
-            console.log("Error al reproducir el audio");
-        }
-
-        timer = setInterval(changeColor, 1000); // Cambio de color cada segundo
+        playSound();
+        
+        timer = setInterval(() => {
+            changeColor();
+        }, 1000);
 
         return () => {
             clearInterval(timer);
         };
-    }, []); // Se ejecuta solo una vez al renderizar el componente
+    }, []);
 
     return (
         <div className='queue-card' style={{ backgroundColor }}>
