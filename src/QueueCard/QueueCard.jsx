@@ -22,7 +22,7 @@ const QueueCard = ({ type, ticket, counter, patient, office }) => {
             }
         };
 
-        /* let number = "";
+        let number = "";
 
         let voice = new SpeechSynthesisUtterance();
 
@@ -49,7 +49,7 @@ const QueueCard = ({ type, ticket, counter, patient, office }) => {
 
         } else {
             console.log("Error al reproducir el audio");
-        } */
+        }
 
         timer = setInterval(changeColor, 1000); // Cambio de color cada segundo
 
